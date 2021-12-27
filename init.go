@@ -60,7 +60,7 @@ func Init(initLoggerInput *InitLoggerInput) {
 	if initLoggerInput.NotificationOnAllErrors == true && initLoggerInput.TelegramToken == "" {
 		panic(errors.New("TelegramToken is required when using notifications."))
 	}
-	if initLoggerInput.TelegramNotificationsChannelID != 0 && initLoggerInput.NotificationOnAllErrors == true {
+	if initLoggerInput.TelegramNotificationsChannelID == 0 && initLoggerInput.NotificationOnAllErrors == true {
 		panic(errors.New("TelegramNotificationsChannelID is required when using notifications."))
 	}
 	if initLoggerInput.TelegramToken != "" {
