@@ -61,7 +61,7 @@ func Init(initLoggerInput *InitLoggerInput) {
 		panic(errors.New("TelegramToken is required when using notifications."))
 	}
 	if initLoggerInput.TelegramNotificationsChannelID == 0 && initLoggerInput.NotificationOnAllErrors == true {
-		panic(errors.New("TelegramNotificationsChannelID is required when using notifications. test update"))
+		panic(errors.New("TelegramNotificationsChannelID is required when using notifications."))
 	}
 	if initLoggerInput.TelegramToken != "" {
 		Logger.TelegramAPI = telegram.New(initLoggerInput.TelegramToken)
