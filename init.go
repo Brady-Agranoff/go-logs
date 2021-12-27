@@ -2,6 +2,7 @@ package logging
 
 import (
 	"errors"
+	"fmt"
 
 	"github.com/bot-api/telegram"
 	"github.com/go-pg/pg/v9"
@@ -66,6 +67,7 @@ func Init(initLoggerInput *InitLoggerInput) {
 	if initLoggerInput.TelegramToken != "" {
 		Logger.TelegramAPI = telegram.New(initLoggerInput.TelegramToken)
 		Logger.TelegramNotificationsChannelID = initLoggerInput.TelegramNotificationsChannelID
+		SendMessage(fmt.Sprintf("%s error logging initiated", initLoggerInput.ServiceName), initLoggerInput.TelegramNotificationsChannelID)
 	} 
 
 
