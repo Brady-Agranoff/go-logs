@@ -2,7 +2,6 @@ package logging
 
 import (
 	"errors"
-	"fmt"
 
 	"github.com/bot-api/telegram"
 	"github.com/go-pg/pg/v9"
@@ -62,8 +61,7 @@ func Init(initLoggerInput *InitLoggerInput) {
 		panic(errors.New("TelegramToken is required when using notifications."))
 	}
 	if initLoggerInput.TelegramNotificationsChannelID == 0 && initLoggerInput.NotificationOnAllErrors == true {
-		fmt.Println(initLoggerInput)
-		panic(errors.New("TelegramNotificationsChannelID is required when using notifications."))
+		panic(errors.New("TelegramNotificationsChannelID is required when using notifications. test update"))
 	}
 	if initLoggerInput.TelegramToken != "" {
 		Logger.TelegramAPI = telegram.New(initLoggerInput.TelegramToken)
